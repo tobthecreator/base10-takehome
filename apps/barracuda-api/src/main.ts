@@ -1,23 +1,12 @@
-import { LoggerConfig } from "api-src/winstonLogger";
-import {
-	Logger,
-	ValidationPipe,
-	VersioningType,
-	VERSION_NEUTRAL,
-} from "@nestjs/common";
+import { Logger, ValidationPipe } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { NestFactory } from "@nestjs/core";
 import * as cookieParser from "cookie-parser";
-import * as Sentry from "@sentry/node";
-import { WinstonModule } from "nest-winston";
 import { AppModule } from "./modules/app/app.module";
 import bodyParser = require("body-parser");
 import { useContainer } from "class-validator";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import { TasksModule } from "./modules/tasks/tasks.module";
 
-const logger: LoggerConfig = new LoggerConfig();
-
+// TODO this can all go minus whatever heroku link we deploy to and localhost
 const whitelist = [
 	"http://localhost:4200",
 	"https://barracuda-staging-app.herokuapp.com",
@@ -52,10 +41,6 @@ async function bootstrap() {
 		},
 		bodyParser: true,
 		rawBody: true,
-		logger: WinstonModule.createLogger(logger.console()),
-	});
-	Sentry.init({
-		dsn: process.env.SENTRY_DSN,
 	});
 
 	app.use(cookieParser());
@@ -65,46 +50,6 @@ async function bootstrap() {
 		extended: true,
 	});
 	app.useGlobalPipes(new ValidationPipe({ transform: true, whitelist: true }));
-	app.enableVersioning({
-		type: VersioningType.HEADER,
-		header: "Cuda-Version",
-		defaultVersion: VERSION_NEUTRAL,
-	});
-
-	const apiConfig2023_03_10 = new DocumentBuilder()
-		.setTitle("Cuda API 2023-03-10")
-		.setVersion("2023-03-10")
-		.addGlobalParameters({
-			name: "Cuda-Version",
-			in: "header",
-			schema: { default: "2023-03-10" },
-		})
-		.addBearerAuth({ type: "http", scheme: "bearer" })
-		.setBasePath(process.env.NEXT_PUBLIC_API_URL!)
-		.addServer(process.env.NEXT_PUBLIC_API_URL!, "", {
-			version: { default: "2023-03-10" },
-		})
-		// .addServer("https://1617-2600-1700-1b30-27b0-e16c-9637-54c8-800d.ngrok.io/")
-		.build();
-
-	let apiDocument2023_03_10 = SwaggerModule.createDocument(
-		app,
-		apiConfig2023_03_10,
-		{
-			include: [TasksModule],
-		}
-	);
-
-	apiDocument2023_03_10["x-readme"] = {
-		"samples-languages": ["curl", "node", "javascript"],
-	};
-
-	SwaggerModule.setup("docs", app, apiDocument2023_03_10, {
-		swaggerOptions: {
-			defaultModelsExpandDepth: 10,
-			defaultModelExpandDepth: 10,
-		},
-	});
 
 	const port = process.env.PORT || 3333;
 

@@ -18,12 +18,11 @@ import { isUndefined } from "lodash";
 export class TasksService {
 	constructor(
 		@Inject(TASK_MODEL)
-		private taskModel: Model<ITask>,
-		private taskEmitters: TaskEmitters
+		private taskModel: Model<ITask> // private taskEmitters: TaskEmitters
 	) {}
 
-	async FindByOrganizationId(organizationId: string): Promise<ITask[]> {
-		return this.findMany({ organization: organizationId });
+	async GetAllTasks(): FindManyReturn<ITask> {
+		return this.findMany({});
 	}
 
 	async FindById(taskId: string): FindOneReturn<ITask> {
@@ -86,7 +85,7 @@ export class TasksService {
 	): CreateOneReturn<ITask> {
 		const newTask = await this.taskModel.create(doc);
 
-		this.taskEmitters.EmitTaskCreated(newTask!, actor);
+		// this.taskEmitters.EmitTaskCreated(newTask!, actor);
 
 		return newTask;
 	}
@@ -125,10 +124,10 @@ export class TasksService {
 			throw new NotFoundException("Task not found");
 		}
 
-		this.taskEmitters.EmitTaskUpdated(updatedTask, actor);
+		// this.taskEmitters.EmitTaskUpdated(updatedTask, actor);
 
 		if (!isUndefined(update.completed) && update.completed === true) {
-			this.taskEmitters.EmitTaskCompleted(updatedTask, actor);
+			// this.taskEmitters.EmitTaskCompleted(updatedTask, actor);
 		}
 
 		return updatedTask;
@@ -144,7 +143,7 @@ export class TasksService {
 			throw new NotFoundException("Task not found");
 		}
 
-		this.taskEmitters.EmitTaskDeleted(deletedTask, actor);
+		// this.taskEmitters.EmitTaskDeleted(deletedTask, actor);
 
 		return deletedTask;
 	}
