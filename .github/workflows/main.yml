@@ -1,0 +1,36 @@
+name: Build Applications
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  SENTRY_URL: https://sentry.io/
+  SENTRY_ORG: barracuda-vt
+  SENTRY_PROJECT: barracuda-app
+  SENTRY_AUTH_TOKEN: eecb428460a74d6aa7956c346107262e73be2436c3024d0998b53855d6580d44
+
+jobs:
+  pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16.17.1"
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: install # will run `yarn install` command
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          cmd: build:local # will run `yarn build` command
+      # - run: yarn install
+      # - run: npx nx affected --target=build --parallel=3
+      # - run: npx nx affected --target=test --parallel=2

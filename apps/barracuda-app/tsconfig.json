@@ -1,0 +1,28 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"jsx": "preserve",
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"types": ["node", "jest"],
+		"strict": false,
+		"forceConsistentCasingInFileNames": true,
+		"noEmit": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"incremental": true,
+		"esModuleInterop": true
+	},
+	"include": [
+		"**/*.ts",
+		"**/*.tsx",
+		"**/*.js",
+		"**/*.jsx",
+		"next-env.d.ts",
+		"tailwind.config.js",
+		"components/Flows/user-accounts/components",
+		"libs/shared/helpers/theme.helpers.ts",
+		"pages/dashboard/[username]/forms/[formId]"
+	],
+	"exclude": ["node_modules"]
+}

@@ -1,0 +1,53 @@
+{
+	"root": "apps/barracuda-api",
+	"sourceRoot": "apps/barracuda-api/src",
+	"projectType": "application",
+	"targets": {
+		"build": {
+			"executor": "@nrwl/node:webpack",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/apps/barracuda-api",
+				"main": "apps/barracuda-api/src/main.ts",
+				"tsConfig": "apps/barracuda-api/tsconfig.app.json"
+			},
+			"configurations": {
+				"production": {
+					"optimization": true,
+					"extractLicenses": true,
+					"inspect": false,
+					"fileReplacements": [
+						{
+							"replace": "apps/barracuda-api/src/environments/environment.ts",
+							"with": "apps/barracuda-api/src/environments/environment.prod.ts"
+						}
+					]
+				}
+			},
+			"dependsOn": []
+		},
+		"serve": {
+			"executor": "@nrwl/node:node",
+			"options": {
+				"buildTarget": "barracuda-api:build"
+			}
+		},
+		"lint": {
+			"executor": "@nrwl/linter:eslint",
+			"outputs": ["{options.outputFile}"],
+			"options": {
+				"lintFilePatterns": ["apps/barracuda-api/**/*.ts"]
+			}
+		},
+		"test": {
+			"executor": "@nrwl/jest:jest",
+			"outputs": ["coverage/apps/barracuda-api"],
+			"options": {
+				"jestConfig": "apps/barracuda-api/jest.config.js",
+				"passWithNoTests": true,
+				"codeCoverage": true
+			}
+		}
+	},
+	"tags": ["scope:shared"]
+}
