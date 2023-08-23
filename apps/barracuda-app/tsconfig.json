@@ -1,28 +1,36 @@
 {
-	"extends": "../../tsconfig.base.json",
-	"compilerOptions": {
-		"jsx": "preserve",
-		"allowJs": true,
-		"allowSyntheticDefaultImports": true,
-		"types": ["node", "jest"],
-		"strict": false,
-		"forceConsistentCasingInFileNames": true,
-		"noEmit": true,
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"incremental": true,
-		"esModuleInterop": true
-	},
-	"include": [
-		"**/*.ts",
-		"**/*.tsx",
-		"**/*.js",
-		"**/*.jsx",
-		"next-env.d.ts",
-		"tailwind.config.js",
-		"components/Flows/user-accounts/components",
-		"libs/shared/helpers/theme.helpers.ts",
-		"pages/dashboard/[username]/forms/[formId]"
-	],
-	"exclude": ["node_modules"]
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "types": ["jest", "node"]
+  },
+  "include": [
+    "../app/**/*.ts",
+    "../app/**/*.tsx",
+    "../app/**/*.js",
+    "../app/**/*.jsx",
+    "../../apps/app/.next/types/**/*.ts",
+    "../../dist/apps/app/.next/types/**/*.ts",
+    "../app/next-env.d.ts"
+  ],
+  "exclude": [
+    "../app/node_modules",
+    "../app/jest.config.ts",
+    "../app/src/**/*.spec.ts",
+    "../app/src/**/*.test.ts"
+  ]
 }
