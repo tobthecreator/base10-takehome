@@ -49,6 +49,8 @@ export default function Companies() {
     getCompanies();
   }, []);
 
+  // TODO - condense fields down into an array that we can map over to save space
+
   return (
     <form>
       <div>

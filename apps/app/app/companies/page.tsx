@@ -37,6 +37,8 @@ export default function Companies() {
     setCompanyToCreate({ ...companyToCreate, [field]: update });
   };
 
+  // TODO - condense fields down into an array that we can map over to save space
+
   return (
     <form>
       <div>
