@@ -70,7 +70,7 @@ export default function Companies() {
               <select
                 id="company_id"
                 name="company_id"
-                className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
                 onChange={(e) =>
                   onUpdate('company_id', parseInt(e.target.value))
                 }
@@ -104,7 +104,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('date', e.target.value + 'T00:00:00Z')
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -125,7 +125,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('revenue', parseFloat(e.target.value))
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('cash_burn', parseFloat(e.target.value))
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function Companies() {
                     parseFloat(e.target.value)
                   )
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -191,7 +191,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('gross_profit_amount', parseFloat(e.target.value))
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -210,7 +210,7 @@ export default function Companies() {
                 id="ebitda"
                 value={recordToCreate?.ebitda ?? 0}
                 onChange={(e) => onUpdate('ebitda', parseFloat(e.target.value))}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -231,7 +231,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('cash_on_hand', parseFloat(e.target.value))
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -250,7 +250,7 @@ export default function Companies() {
                 id="cac"
                 value={recordToCreate?.cac ?? 0}
                 onChange={(e) => onUpdate('cac', parseFloat(e.target.value))}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -269,7 +269,7 @@ export default function Companies() {
                 id="ltv"
                 value={recordToCreate?.ltv ?? 0}
                 onChange={(e) => onUpdate('ltv', parseFloat(e.target.value))}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -288,7 +288,7 @@ export default function Companies() {
                 id="acv"
                 value={recordToCreate?.acv ?? 0}
                 onChange={(e) => onUpdate('acv', parseFloat(e.target.value))}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -307,7 +307,7 @@ export default function Companies() {
                 id="arpu"
                 value={recordToCreate?.arpu ?? 0}
                 onChange={(e) => onUpdate('arpu', parseFloat(e.target.value))}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -328,7 +328,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('customer_count', parseInt(e.target.value))
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -353,7 +353,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('next_fundraise_date', e.target.value + 'T00:00:00Z')
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -371,7 +371,7 @@ export default function Companies() {
         <button
           onClick={onSubmit}
           type="button"
-          className="inline-flex justify-center rounded-md bg-[#45aeeb] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#45aeeb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="inline-flex justify-center rounded-md bg-[#45aeeb] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#45aeeb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45aeeb]"
         >
           Save
         </button>

@@ -21,7 +21,7 @@ export default function Companies() {
   const onSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      await CreateCompany(companyToCreate);
+      console.log(await CreateCompany(companyToCreate));
       setCompanyToCreate({ ...defaultCompany });
       setSuccess(1);
     } catch (e) {
@@ -46,6 +46,7 @@ export default function Companies() {
           Company Information
         </h1>
 
+        {JSON.stringify(companyToCreate)}
         <div className="mt-10 space-y-8 border-b border-gray-900/10 pb-12 sm:space-y-0 sm:divide-y sm:divide-gray-900/10 sm:border-t sm:pb-0">
           <div className="sm:grid sm:grid-cols-3 sm:items-start sm:gap-4 sm:py-6">
             <label
@@ -62,7 +63,7 @@ export default function Companies() {
                 name="company-name"
                 id="company-name"
                 onChange={(e) => onUpdate('name', e.target.value)}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
                 value={companyToCreate?.name ?? ''}
               />
             </div>
@@ -79,7 +80,7 @@ export default function Companies() {
               <select
                 id="industry"
                 name="industry"
-                className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
                 onChange={(e) =>
                   onUpdate('industry', e.target.value.toLowerCase())
                 }
@@ -115,10 +116,13 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate(
                     'business_models',
-                    e.target.value.split(',').map((x) => x.toLowerCase())
+                    e.target.value
+                      .replace(' ', '')
+                      .split(',')
+                      .map((x) => x.toLowerCase())
                   )
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -138,7 +142,7 @@ export default function Companies() {
                 id="hq-location"
                 value={companyToCreate?.hq_location ?? ''}
                 onChange={(e) => onUpdate('hq_location', e.target.value)}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -159,7 +163,7 @@ export default function Companies() {
                 onChange={(e) =>
                   onUpdate('founder_quality', parseInt(e.target.value))
                 }
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:max-w-xs sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -179,7 +183,7 @@ export default function Companies() {
                 id="feature-set"
                 value={companyToCreate?.feature_set ?? ''}
                 onChange={(e) => onUpdate('feature_set', e.target.value)}
-                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#45aeeb] sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -196,7 +200,7 @@ export default function Companies() {
         <button
           onClick={onSubmit}
           type="button"
-          className="inline-flex justify-center rounded-md bg-[#45aeeb] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#45aeeb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="inline-flex justify-center rounded-md bg-[#45aeeb] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#45aeeb] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#45aeeb]"
         >
           Save
         </button>
