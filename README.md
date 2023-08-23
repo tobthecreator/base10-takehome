@@ -1,5 +1,9 @@
 # Base10 Project
 
+## Design Doc
+
+https://docs.google.com/document/d/1PdwGaXSA3IuCClwB_ZB-oFpfaWH1MyJoe91sj1dpqEs/edit?usp=sharing
+
 ## Setup
 
 This should be easy to kickstart on your local machine.
