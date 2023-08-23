@@ -1,5 +1,14 @@
 # Base10 Project
 
+## Setup
+
+This should be easy to kickstart on your local machine.
+
+- Install yarn and Go
+- Run `yarn install` in the base directory of this project.
+- Run `yarn start`, which should kick off the app and api in parallel with eachother
+- If it throws and error, Go typically tells you what specific commands you need to run
+
 ## Overview
 
 I was not able to perform up to my full quality bar with this project.
